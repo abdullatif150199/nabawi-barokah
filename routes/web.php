@@ -30,7 +30,7 @@ Route::middleware([TrackVisitor::class])->group(function () {
 Route::post('/logout', [AuthController::class, 'logout'])->middleware('auth');
 Route::get('/login', [AuthController::class, 'index'])->name('login');
 Route::post('/login', [AuthController::class, 'login']);
-
+Route::get('/export-visitors', [VisitorController::class, 'export'])->name('visitors.export');
 Route::get('/api/visitors/monthly', [VisitorController::class, 'getMonthlyVisitorStats']);
 Route::get('/api/visitors/weekly', [VisitorController::class, 'getWeeklyVisitorStats']);
 Route::post('/applicants', [VisitorController::class, 'store'])->name('applicants.store');

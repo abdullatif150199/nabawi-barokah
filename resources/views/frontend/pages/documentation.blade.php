@@ -79,7 +79,7 @@
 
             <div class="relative rounded-xl overflow-hidden shadow-lg mb-10">
                 <img id="mainImage" src="{{ asset('storage/' . $documentation->img_thumb) }}" alt="Gambar Utama"
-                    class="w-full h-95 object-cover">
+                    class="w-full h-72 lg:h-95 object-cover">
                 <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent"></div>
             </div>
 

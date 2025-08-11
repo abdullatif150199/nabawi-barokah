@@ -82,4 +82,39 @@ class VisitorController extends Controller
 
         return response()->json($data);
     }
+
+    public function export()
+    {
+        $visitors = Applicant::all();
+
+        $filename = "visitors.xls";
+        $headers = [
+            "Content-Type" => "application/vnd.ms-excel",
+            "Content-Disposition" => "attachment; filename=\"$filename\""
+        ];
+
+        $content = "<table border='1'>
+        <tr>
+            <th>Tanggal</th>
+            <th>Paket</th>
+            <th>Nama</th>
+            <th>WA</th>
+            <th>Pesan</th>
+        </tr>";
+
+       foreach ($visitors as $v) {
+            $content .= "<tr>
+                <td>" . \Carbon\Carbon::parse($v->created_at)->translatedFormat('d F Y') . "</td>
+                <td>" . ($v->package->name ?? '-') . "</td>
+                <td>" . $v->name . "</td>
+                <td>" . $v->wa . "</td>
+                <td>" . $v->message . "</td>
+            </tr>";
+        }
+
+
+        $content .= "</table>";
+
+        return response($content, 200, $headers);
+    }
 }

@@ -18,7 +18,8 @@ class DasboardController extends Controller
         $totalPackages = Package::count();
         $totalTestimonials = Testimonial::count();
         $totalDocumentations = Documentation::count();
+        $packages = Package::all();
 
-        return view('backend.pages.dashboard.index', compact('visitors', 'totalArticles', 'totalPackages', 'totalTestimonials', 'totalDocumentations'));
+        return view('backend.pages.dashboard.index', compact('visitors', 'totalArticles', 'totalPackages', 'totalTestimonials', 'totalDocumentations', 'packages'));
     }
 }
