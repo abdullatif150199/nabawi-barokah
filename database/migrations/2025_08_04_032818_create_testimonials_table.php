@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('user');
             $table->string('img')->nullable();
+            $table->tinyInteger('rating')->unsigned();
             $table->text('content');
             $table->timestamps();
         });

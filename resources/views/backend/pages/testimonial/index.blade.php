@@ -30,16 +30,16 @@
                                 <table id="example5" class="display" style="min-width: 845px">
                                     <thead>
                                         <tr>
-                                            <th>User</th>
                                             <th>Gambar</th>
-                                            <th>Content</th>
+                                            <th>Nama</th>
+                                            <th>Rating</th>
+                                            <th>Review</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         @forelse ($testimonials as $testimonial)
                                             <tr>
-                                                <td>{{ $testimonial->user }}</td>
                                                 <td>
                                                     @if ($testimonial->img)
                                                         <img width="70"
@@ -49,6 +49,8 @@
                                                         <span class="text-muted">No Image</span>
                                                     @endif
                                                 </td>
+                                                <td>{{ $testimonial->user }}</td>
+                                                <td>{{ $testimonial->rating }}</td>
                                                 <td>{{ \Illuminate\Support\Str::limit(strip_tags($testimonial->content), 50) }}
                                                 </td>
                                                 <td>

@@ -1,3 +1,17 @@
+@push('style')
+    <style>
+        .star-full {
+            color: #f5b50a;
+
+        }
+
+        .star-empty {
+            color: #cfcfcf;
+
+        }
+    </style>
+@endpush
+
 <section id="testimoni" class="py-16 bg-gray-50">
     <div class="container mx-auto px-4" data-aos="fade-up" data-aos-duration="1500">
         <div class="text-center mb-12">
@@ -20,6 +34,17 @@
                                         class="w-32 h-32 rounded-full object-cover border-4 border-emerald-500 shadow-md">
                                 </div>
 
+                                <div class="flex justify-center mt-3 mb-5">
+                                    {{-- Bintang penuh sesuai rating --}}
+                                    @for ($i = 1; $i <= $testimonial->rating; $i++)
+                                        <i class="fa-solid fa-star star star-full" aria-hidden="true"></i>
+                                    @endfor
+
+                                    {{-- Bintang kosong untuk sisanya --}}
+                                    @for ($i = $testimonial->rating + 1; $i <= 5; $i++)
+                                        <i class="fa-regular fa-star star star-empty" aria-hidden="true"></i>
+                                    @endfor
+                                </div>
 
                                 <p class="text-gray-600 italic mb-3">
                                     "{{ $testimonial->content }}"
@@ -27,9 +52,11 @@
                                 <p class="font-semibold text-emerald">
                                     - {{ $testimonial->user }}
                                 </p>
+
                             </div>
                         </div>
                     @endforeach
+
 
                     <!-- Slide 2 -->
 
@@ -56,6 +83,10 @@
             slidesPerView: 1,
             spaceBetween: 30,
             loop: true,
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+            },
             pagination: {
                 el: ".swiper-pagination",
                 clickable: true,

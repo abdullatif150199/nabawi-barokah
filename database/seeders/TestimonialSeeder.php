@@ -18,6 +18,7 @@ class TestimonialSeeder extends Seeder
                 'user' => fake()->name(),
                 'img' => 'default.jpg', // atau bisa isi default: 'default.jpg'
                 'content' => fake()->paragraph(1),
+                'rating' => rand(1, 5),
             ]);
         }
     }

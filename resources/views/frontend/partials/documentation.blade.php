@@ -14,12 +14,14 @@
                 <div class="swiper-wrapper">
                     @foreach ($documentations as $documentation)
                         <div class="swiper-slide">
-                            <article class="bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 group">
+                            <article
+                                class="bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 group">
                                 <a href="{{ route('dokumentasi.detail', $documentation->slug) }}">
                                     <!-- Thumbnail -->
                                     <div class="aspect-w-16 aspect-h-10 bg-gray-200">
-                                        <img src="{{ asset('storage/' . $documentation->img_thumb) }}" alt="{{ $documentation->title }}"
-                                             class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-300">
+                                        <img src="{{ asset('storage/' . $documentation->img_thumb) }}"
+                                            alt="{{ $documentation->title }}"
+                                            class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-300">
                                     </div>
 
                                     <!-- Konten -->
@@ -30,7 +32,8 @@
                                         <p class="text-gray-600 mb-4 text-sm leading-relaxed">
                                             {{ Str::words(strip_tags($documentation->description), 15, '...') }}
                                         </p>
-                                        <span class="inline-block text-emerald-700 font-medium hover:text-emerald-900 transition-colors duration-200">
+                                        <span
+                                            class="inline-block text-emerald-700 font-medium hover:text-emerald-900 transition-colors duration-200">
                                             Baca Selengkapnya →
                                         </span>
                                     </div>
@@ -51,24 +54,34 @@
     </div>
 </section>
 @push('script')
-<script>
-    const documentationSwiper = new Swiper('.documentation-swiper', {
-        slidesPerView: 1,
-        spaceBetween: 24,
-        loop: true,
-        navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-        },
-        pagination: {
-            el: '.swiper-pagination',
-            clickable: true,
-        },
-        breakpoints: {
-            1024: { slidesPerView: 3 },
-            768: { slidesPerView: 2 },
-            0: { slidesPerView: 1 },
-        },
-    });
-</script>
+    <script>
+        const documentationSwiper = new Swiper('.documentation-swiper', {
+            slidesPerView: 1,
+            spaceBetween: 24,
+            loop: true,
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            breakpoints: {
+                1024: {
+                    slidesPerView: 3
+                },
+                768: {
+                    slidesPerView: 2
+                },
+                0: {
+                    slidesPerView: 1
+                },
+            },
+        });
+    </script>
 @endpush

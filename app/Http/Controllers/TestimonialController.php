@@ -25,6 +25,7 @@ class TestimonialController extends Controller
             'user' => 'required|string|max:255',
             'img' => 'nullable|image',
             'content' => 'required|string',
+            'rating' => 'required|integer|between:1,5',
         ]);
 
         $imageName = $request->file('img') ? $request->file('img')->store('testimonials', 'public') : null;
@@ -33,6 +34,7 @@ class TestimonialController extends Controller
             'user' => $request->user,
             'img' => $imageName,
             'content' => $request->content,
+            'rating' => $request->rating,
         ]);
 
         return redirect()->route('testimonials.index')->with('success', 'Testimonial created successfully.');
@@ -49,6 +51,7 @@ class TestimonialController extends Controller
             'user' => 'required|string|max:255',
             'img' => 'nullable|image',
             'content' => 'required|string',
+            'rating' => 'required|integer|between:1,5',
         ]);
 
         if ($request->hasFile('img')) {
@@ -62,6 +65,7 @@ class TestimonialController extends Controller
         }
 
         $testimonial->user = $request->user;
+        $testimonial->rating = $request->rating;
         $testimonial->content = $request->content;
         $testimonial->save();
 

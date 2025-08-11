@@ -23,7 +23,17 @@
                         @csrf
                         <div class="row">
 
-                            {{-- Image --}}
+                            {{-- User --}}
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label>Nama</label>
+                                    <input type="text" name="user" class="form-control" value="{{ old('user') }}">
+                                    @error('user')
+                                        <small class="text-danger">{{ $message }}</small>
+                                    @enderror
+                                </div>
+                            </div>
+
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label>Gambar</label>
@@ -34,23 +44,24 @@
                                 </div>
                             </div>
 
-                            {{-- User --}}
+                            {{-- Content --}}
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <label>User</label>
-                                    <input type="text" name="user" class="form-control" value="{{ old('user') }}">
-                                    @error('user')
+                                    <label>Review</label>
+                                    <textarea name="content" rows="6" class="form-control">{{ old('content') }}</textarea>
+                                    @error('content')
                                         <small class="text-danger">{{ $message }}</small>
                                     @enderror
                                 </div>
                             </div>
 
-                            {{-- Content --}}
+                            {{-- Rating --}}
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <label>Content</label>
-                                    <textarea name="content" rows="6" class="form-control">{{ old('content') }}</textarea>
-                                    @error('content')
+                                    <label>Rating (1 - 5)</label>
+                                    <input type="number" name="rating" min="1" max="5" step="1"
+                                        class="form-control" value="{{ old('rating') }}" required>
+                                    @error('rating')
                                         <small class="text-danger">{{ $message }}</small>
                                     @enderror
                                 </div>
