@@ -44,8 +44,8 @@
                 </div>
 
                 <!-- Navigasi -->
-                <div class="swiper-button-next !text-emerald-700"></div>
-                <div class="swiper-button-prev !text-emerald-700"></div>
+                {{-- <div class="swiper-button-next !text-emerald-700"></div>
+                <div class="swiper-button-prev !text-emerald-700"></div> --}}
 
                 <!-- Pagination -->
                 <div class="swiper-pagination mt-6 !bottom-0"></div>
@@ -59,14 +59,15 @@
             slidesPerView: 1,
             spaceBetween: 24,
             loop: true,
+            speed: 1000,
             autoplay: {
-                delay: 3000,
+                delay: 2000,
                 disableOnInteraction: false,
             },
-            navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
-            },
+            // navigation: {
+            //     nextEl: '.swiper-button-next',
+            //     prevEl: '.swiper-button-prev',
+            // },
             pagination: {
                 el: '.swiper-pagination',
                 clickable: true,

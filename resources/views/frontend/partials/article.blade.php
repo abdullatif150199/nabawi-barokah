@@ -32,9 +32,9 @@
                     @endforeach
                 </div>
 
-                <!-- Panah Navigasi -->
+                {{-- <!-- Panah Navigasi -->
                 <div class="swiper-button-next"></div>
-                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-prev"></div> --}}
 
                 <!-- Pagination -->
                 <div class="swiper-pagination mt-6"></div>
@@ -50,14 +50,15 @@
             slidesPerView: 1,
             spaceBetween: 24,
             loop: true,
+            speed: 1000,
             autoplay: {
-                delay: 3000,
+                delay: 2000,
                 disableOnInteraction: false,
             },
-            navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
-            },
+            // navigation: {
+            //     nextEl: '.swiper-button-next',
+            //     prevEl: '.swiper-button-prev',
+            // },
             pagination: {
                 el: '.swiper-pagination',
                 clickable: true,

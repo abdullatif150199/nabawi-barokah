@@ -64,7 +64,7 @@ class DocumentationController extends Controller
         $request->validate([
             'title' => 'required|string|max:255',
             'description' => 'required|string',
-            'img_thumb' => 'nullable|image',
+            'img_thumb' => 'required|image',
             'images.*' => 'nullable|image',
         ]);
 

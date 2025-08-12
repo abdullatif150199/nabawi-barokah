@@ -10,7 +10,7 @@
         </div>
 
         <!-- Swiper -->
-        <div class="swiper mySwiper" data-aos="fade-up" data-aos-delay="100">
+        <div class="swiper packageSwiper" data-aos="fade-up" data-aos-delay="100">
             <div class="swiper-wrapper">
                 @foreach ($packages as $package)
                     <div class="swiper-slide">
@@ -74,8 +74,8 @@
             </div>
 
             <!-- Navigation -->
-            <div class="swiper-button-next"></div>
-            <div class="swiper-button-prev"></div>
+            {{-- <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div> --}}
             <div class="swiper-pagination mt-4"></div>
         </div>
     </div>
@@ -85,20 +85,25 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
 
     <!-- Swiper Init -->
+
+</section>
+
+@push('script')
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-            new Swiper(".mySwiper", {
+            new Swiper(".packageSwiper", {
                 slidesPerView: 3,
                 spaceBetween: 30,
                 loop: true,
+                speed: 1000,
                 autoplay: {
-                    delay: 3000,
+                    delay: 2000,
                     disableOnInteraction: false,
                 },
-                navigation: {
-                    nextEl: ".swiper-button-next",
-                    prevEl: ".swiper-button-prev",
-                },
+                // navigation: {
+                //     nextEl: ".swiper-button-next",
+                //     prevEl: ".swiper-button-prev",
+                // },
                 pagination: {
                     el: ".swiper-pagination",
                     clickable: true,
@@ -117,4 +122,4 @@
             });
         });
     </script>
-</section>
+@endpush

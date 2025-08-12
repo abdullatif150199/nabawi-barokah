@@ -71,8 +71,8 @@
             </div>
 
             <!-- Navigasi panah -->
-            <div class="swiper-button-next text-emerald"></div>
-            <div class="swiper-button-prev text-emerald"></div>
+            {{-- <div class="swiper-button-next text-emerald"></div>
+            <div class="swiper-button-prev text-emerald"></div> --}}
         </div>
     </div>
 </section>
@@ -83,18 +83,19 @@
             slidesPerView: 1,
             spaceBetween: 30,
             loop: true,
+            speed: 1000,
             autoplay: {
-                delay: 3000,
+                delay: 2000,
                 disableOnInteraction: false,
             },
             pagination: {
                 el: ".swiper-pagination",
                 clickable: true,
             },
-            navigation: {
-                nextEl: ".swiper-button-next",
-                prevEl: ".swiper-button-prev",
-            },
+            // navigation: {
+            //     nextEl: ".swiper-button-next",
+            //     prevEl: ".swiper-button-prev",
+            // },
             breakpoints: {
                 1024: {
                     slidesPerView: 3,
