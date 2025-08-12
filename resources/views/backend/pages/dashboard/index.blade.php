@@ -155,12 +155,11 @@
                     <div class="card">
                         <div class="card-header">
                             <h4 class="card-title">New Visitors List</h4>
-                            <a href="{{ route('visitors.export') }}">
-                                <button class="btn btn-primary mb-3 text-white" data-bs-toggle="modal"
-                                    data-bs-target="#exportModal">
-                                    Export Excel
-                                </button>
-                            </a>
+
+                            <button class="btn btn-primary mb-3 text-white" data-bs-toggle="modal"
+                                data-bs-target="#exportModal">
+                                Export Excel
+                            </button>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
@@ -206,11 +205,12 @@
 
     <div class="modal fade" id="exportModal" tabindex="-1" aria-labelledby="exportModalLabel" aria-hidden="true">
         <div class="modal-dialog">
-            <form action="{{ route('visitors.export') }}" method="GET">
+            <form action="{{ route('visitors.export') }}" method="POST">
+                @csrf
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="exportModalLabel">Filter Data Export</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                        {{-- <button type="button" class="btn-close" data-bs-dismiss="modal"></button> --}}
                     </div>
                     <div class="modal-body">
                         <label>Tanggal Mulai</label>
@@ -228,12 +228,15 @@
                         </select>
                     </div>
                     <div class="modal-footer">
-                        <button type="submit" class="btn btn-success">Download</button>
+                         <button type="button" class="btn-close btn btn-dark" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Download</button>
                     </div>
                 </div>
             </form>
         </div>
     </div>
+
+
 @endsection
 
 @push('script')

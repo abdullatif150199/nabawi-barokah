@@ -17,12 +17,8 @@
         href="{{ asset('backend-assets/vendor/bootstrap-select/dist/css/bootstrap-select.min.css') }}">
     <link rel="stylesheet" href="{{ asset('backend-assets/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('backend-assets/css/skin-3.css') }}">
-
     {{-- toast --}}
     <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet" />
-
-
-
     <!-- Datatable -->
     <link rel="stylesheet" href="{{ asset('backend-assets/vendor/datatables/css/jquery.dataTables.min.css') }}">
     {{-- <link rel="stylesheet" href="{{ asset('backend-assets/css/style.css') }}"> --}}
@@ -122,6 +118,9 @@
             });
         </script>
     @endif --}}
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+
     @if (session('success'))
         <script>
             toastr.success("{{ session('success') }}");
