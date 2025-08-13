@@ -9,24 +9,22 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-   public function up(): void
+    public function up(): void
     {
-        Schema::create('settings', function (Blueprint $table) {
+        Schema::create('youtubes', function (Blueprint $table) {
             $table->id();
-            $table->text('wa')->nullable();
-            $table->text('fb')->nullable();
-            $table->text('ig')->nullable();
-            $table->text('yt')->nullable();
+            $table->string('title');
+            $table->text('url');
+            $table->text('description')->nullable();
             $table->timestamps();
         });
     }
-
 
     /**
      * Reverse the migrations.
      */
     public function down(): void
     {
-        Schema::dropIfExists('settings');
+        Schema::dropIfExists('youtubes');
     }
 };

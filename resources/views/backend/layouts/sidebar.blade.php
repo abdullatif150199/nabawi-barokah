@@ -2,7 +2,7 @@
             Nav header start
         ***********************************-->
       <div class="nav-header">
-          <a href="{{route('dashboard')}}" class="brand-logo">
+          <a href="{{ route('dashboard') }}" class="brand-logo">
               <img class="logo-abbr" src="{{ asset('backend-assets/images/logo.png') }}" alt="">
               <img class="logo-compact" src="{{ asset('backend-assets/images/logo.png') }}" alt="">
               <img class="brand-title" src="{{ asset('backend-assets/images/logo.png') }}" alt="">
@@ -207,9 +207,16 @@
                   </li>
 
                   <li>
+                      <a class="ai-icon" href="{{ route('youtube.index') }}" aria-expanded="false">
+                          <i class="la la-youtube"></i>
+                          <span class="nav-text">Embed Youtube</span>
+                      </a>
+                  </li>
+
+                  <li>
                       <a class="ai-icon" href="{{ route('announcements.index') }}" aria-expanded="false">
                           <i class="la la-bullhorn"></i>
-                          <span class="nav-text">Pengumuman</span>
+                          <span class="nav-text">Bar Pengumuman</span>
                       </a>
                   </li>
 

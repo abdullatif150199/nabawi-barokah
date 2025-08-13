@@ -32,7 +32,8 @@
 
             <div class="card">
                 <div class="card-body">
-                    <form action="{{ route('packages.update', $package->id) }}" method="POST">
+                    <form action="{{ route('packages.update', $package->id) }}" method="POST"
+                        enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
 
@@ -46,6 +47,23 @@
                                 @error('name')
                                     <small class="text-danger">{{ $message }}</small>
                                 @enderror
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Gambar</label>
+                                    @if ($package->image)
+                                        <div class="mb-2">
+                                            <img src="{{ asset('storage/' . $package->image) }}" width="75"
+                                                alt="Current Image">
+                                        </div>
+                                    @endif
+                                    <input type="file" name="image" class="form-control-file"
+                                        value="{{ old('image', $package->image) }}">
+                                    @error('image')
+                                        <small class="text-danger">{{ $message }}</small>
+                                    @enderror
+                                </div>
                             </div>
 
                             {{-- Duration --}}
@@ -129,7 +147,7 @@
                             </div>
 
                             {{-- Detail --}}
-                            {{-- <div class="col-md-12 mt-3">
+                            <div class="col-md-12 mt-3">
                                 <label for="detail" class="form-label">Detail</label>
 
 
@@ -142,7 +160,7 @@
                                 @error('detail')
                                     <small class="text-danger">{{ $message }}</small>
                                 @enderror
-                            </div> --}}
+                            </div>
 
                             <div class="col-md-12 mt-3">
                                 <button type="submit" class="btn btn-primary">Submit</button>

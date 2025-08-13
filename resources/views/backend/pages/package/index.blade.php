@@ -30,6 +30,7 @@
                                 <table id="example5" class="display" style="min-width: 845px">
                                     <thead>
                                         <tr>
+                                            <th>Gambar</th>
                                             <th>Paket</th>
                                             <th>Durasi</th>
                                             <th>keberangkatan</th>
@@ -40,6 +41,14 @@
                                     <tbody>
                                         @forelse ($packages as $package)
                                             <tr>
+                                                <td>
+                                                    @if ($package->image)
+                                                        <img width="70" src="{{ asset('storage/' . $package->image) }}"
+                                                            alt="Package Image">
+                                                    @else
+                                                        <span class="text-muted">No Image</span>
+                                                    @endif
+                                                </td>
                                                 <td>{{ $package->name }}</td>
                                                 <td>{{ $package->duration ?? '-' }}</td>
                                                 <td>{{ $package->departure_date ? \Carbon\Carbon::parse($package->departure_date)->format('d M Y') : '-' }}

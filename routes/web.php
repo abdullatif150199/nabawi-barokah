@@ -10,6 +10,7 @@ use App\Http\Controllers\PackageController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\TestimonialController;
 use App\Http\Controllers\VisitorController;
+use App\Http\Controllers\YoutubeController;
 use App\Http\Middleware\TrackVisitor;
 use App\Models\Documentation;
 use App\Models\Testimonial;
@@ -41,6 +42,7 @@ Route::prefix('dashboard')->middleware(['auth'])->group(function () {
     Route::resource('/documentations', DocumentationController::class);
     Route::resource('/packages', PackageController::class);
     Route::resource('/testimonials', TestimonialController::class);
+    Route::resource('youtube', YoutubeController::class);
     Route::get('/setting', [SettingController::class, 'edit'])->name('setting.edit');
     Route::post('/setting', [SettingController::class, 'update'])->name('setting.update');
 

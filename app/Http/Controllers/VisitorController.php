@@ -60,7 +60,6 @@ class VisitorController extends Controller
         $startDate = now()->subDays(6)->startOfDay();
         $endDate = now()->endOfDay();
 
-        // Ambil data dari database
         $rawData = Visitor::selectRaw('DATE(created_at) as date, COUNT(*) as total')
             ->whereBetween('created_at', [$startDate, $endDate])
             ->groupBy('date')
@@ -68,7 +67,7 @@ class VisitorController extends Controller
             ->get()
             ->keyBy('date');
 
-        // Buat array 7 hari terakhir
+
         $data = collect();
         for ($i = 0; $i <= 6; $i++) {
             $date = now()->subDays(6 - $i)->format('Y-m-d');

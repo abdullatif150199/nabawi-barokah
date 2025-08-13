@@ -158,11 +158,11 @@
                                                 </div>
 
                                                 {{-- Detail panjang di bawah --}}
-                                                {{-- <div class="profile-about-me mt-5">
+                                                <div class="profile-about-me mt-5">
                                                     <div class="border-bottom-1 pb-4">
                                                         {!! $package->detail !!}
                                                     </div>
-                                                </div> --}}
+                                                </div>
                                             </div>
                                         </div>
 

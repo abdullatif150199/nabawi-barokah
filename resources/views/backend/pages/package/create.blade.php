@@ -21,7 +21,7 @@
 
             <div class="card">
                 <div class="card-body">
-                    <form action="{{ route('packages.store') }}" method="POST">
+                    <form action="{{ route('packages.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="row g-3">
 
@@ -33,6 +33,16 @@
                                 @error('name')
                                     <small class="text-danger">{{ $message }}</small>
                                 @enderror
+                            </div>
+
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Gambar</label>
+                                    <input type="file" name="image" class="form-control-file" required>
+                                    @error('image')
+                                        <small class="text-danger">{{ $message }}</small>
+                                    @enderror
+                                </div>
                             </div>
 
                             {{-- Duration --}}
@@ -107,7 +117,7 @@
                             </div>
 
                             {{-- Detail --}}
-                            {{-- <div class="col-md-12 mt-3">
+                            <div class="col-md-12 mt-3">
                                 <label for="detail" class="form-label">Detail</label>
                                 <input id="detail" type="hidden" name="detail"
                                     value="{{ old('detail', $package->detail ?? '') }}">
@@ -118,7 +128,7 @@
                                 @error('detail')
                                     <small class="text-danger">{{ $message }}</small>
                                 @enderror
-                            </div> --}}
+                            </div>
 
                             {{-- Tambahkan CSS untuk memperbesar tinggi editor --}}
 

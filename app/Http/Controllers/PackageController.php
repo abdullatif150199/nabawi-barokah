@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Package;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class PackageController extends Controller
 {
@@ -20,10 +21,10 @@ class PackageController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate([
+        $validatedData = $request->validate([
             'name'            => 'required|string|max:255',
             'duration'        => 'nullable|string|max:255',
-            'airline'        => 'nullable|string|max:255',
+            'airline'         => 'nullable|string|max:255',
             'departure_date'  => 'nullable|date',
             'detail'          => 'nullable|string',
             'hotel_1'         => 'nullable|string|max:255',
@@ -31,12 +32,20 @@ class PackageController extends Controller
             'ziarah'          => 'nullable|string',
             'acomodation'     => 'nullable|string|max:255',
             'price'           => 'required|numeric',
+            'image'           => 'required|image',
         ]);
 
-        Package::create($request->all());
 
-        return redirect()->route('packages.index')->with('success', 'Package created succesfully.');
+        if ($request->hasFile('image')) {
+            $validatedData['image'] = $request->file('image')->store('packages', 'public');
+        }
+
+        Package::create($validatedData);
+
+        return redirect()->route('packages.index')
+            ->with('success', 'Package created successfully.');
     }
+
 
     public function show(Package $package)
     {
@@ -53,7 +62,7 @@ class PackageController extends Controller
         $request->validate([
             'name'            => 'required|string|max:255',
             'duration'        => 'nullable|string|max:255',
-            'airline'        => 'nullable|string|max:255',
+            'airline'         => 'nullable|string|max:255',
             'departure_date'  => 'nullable|date',
             'detail'          => 'nullable|string',
             'hotel_1'         => 'nullable|string|max:255',
@@ -61,15 +70,31 @@ class PackageController extends Controller
             'ziarah'          => 'nullable|string',
             'acomodation'     => 'nullable|string|max:255',
             'price'           => 'required|numeric',
+            'image'           => 'nullable|image',
         ]);
 
-        $package->update($request->all());
+        $data = $request->except('image');
+
+        if ($request->hasFile('image')) {
+            if ($package->image && Storage::disk('public')->exists($package->image)) {
+                Storage::disk('public')->delete($package->image);
+            }
+
+            $data['image'] = $request->file('image')->store('packages', 'public');
+        }
+
+        $package->update($data);
 
         return redirect()->route('packages.index')->with('success', 'Package updated successfully.');
     }
 
     public function destroy(Package $package)
     {
+
+        if ($package->image && Storage::disk('public')->exists($package->image)) {
+            Storage::disk('public')->delete($package->image);
+        }
+
         $package->delete();
         return redirect()->route('packages.index')->with('success', 'Package deleted succesfully.');
     }

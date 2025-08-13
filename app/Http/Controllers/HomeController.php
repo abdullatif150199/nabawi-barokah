@@ -8,6 +8,7 @@ use App\Models\Documentation;
 use App\Models\Package;
 use App\Models\Setting;
 use App\Models\Testimonial;
+use App\Models\Youtube;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -18,6 +19,7 @@ class HomeController extends Controller
         $packages = Package::latest()->get();
         $testimonials = Testimonial::latest()->get();
         $documentations = Documentation::latest()->get();
+        $videos = Youtube::latest()->get();
         $setting = Setting::first();
         // $wa = !empty($setting->wa) ? $setting->wa : '6281234567890';
         $packageLists = Package::pluck('name', 'id');
@@ -29,6 +31,7 @@ class HomeController extends Controller
             'documentations',
             // 'announcement',
             'packageLists',
+            'videos'
             // 'wa'
         ));
     }

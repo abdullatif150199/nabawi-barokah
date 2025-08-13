@@ -22,5 +22,9 @@
         @include('frontend.partials.article')
     @endif
 
+    @if ($videos && $videos->isNotEmpty())
+        @include('frontend.partials.youtube')
+    @endif
+
     @include('frontend.partials.consultation_section')
 @endsection
