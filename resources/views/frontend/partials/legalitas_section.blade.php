@@ -15,7 +15,9 @@
                     <i class="fas fa-certificate text-white text-xl"></i>
                 </div>
                 <h3 class="text-xl font-semibold mb-2 text-emerald-dark">Kemenag RI</h3>
-                <p class="text-gray-600 text-sm md:text-base">Terdaftar resmi di Kementerian Agama Republik Indonesia</p>
+                <p class="text-gray-600 text-sm md:text-base">
+                    Izin PPIU No: 29072200076510002
+                </p>
             </div>
 
             <!-- Card 2 -->
@@ -24,7 +26,9 @@
                     <i class="fas fa-shield-alt text-white text-xl"></i>
                 </div>
                 <h3 class="text-xl font-semibold mb-2 text-yellow-700">PPIU Certified</h3>
-                <p class="text-gray-600 text-sm md:text-base">Memiliki sertifikat PPIU untuk penyelenggaraan ibadah umroh</p>
+                <p class="text-gray-600 text-sm md:text-base">
+                    Nomor PIN: 6577
+                </p>
             </div>
 
             <!-- Card 3 -->
@@ -33,8 +37,11 @@
                     <i class="fas fa-lock text-white text-xl"></i>
                 </div>
                 <h3 class="text-xl font-semibold mb-2 text-emerald-dark">SSL Secure</h3>
-                <p class="text-gray-600 text-sm md:text-base">Transaksi aman dengan sistem keamanan berlapis</p>
+                <p class="text-gray-600 text-sm md:text-base">
+                    Transaksi aman dengan sistem keamanan berlapis
+                </p>
             </div>
         </div>
     </div>
 </section>
+
