@@ -16,7 +16,7 @@
                 </div>
                 <h3 class="text-xl font-semibold mb-2 text-emerald-dark">Kemenag RI</h3>
                 <p class="text-gray-600 text-sm md:text-base">
-                    Izin PPIU No: 29072200076510002
+                    KBLI 79122 Telah memenuhi persyaratan Terverifikasi Kemenag
                 </p>
             </div>
 
@@ -27,7 +27,7 @@
                 </div>
                 <h3 class="text-xl font-semibold mb-2 text-yellow-700">PPIU Certified</h3>
                 <p class="text-gray-600 text-sm md:text-base">
-                    Nomor PIN: 6577
+                    NO IZIN : 29072200076510002 Aktivitas Biro Perjalanan Ibadah Umroh dan Haji  Khusus
                 </p>
             </div>
 
@@ -36,9 +36,9 @@
                 <div class="w-16 h-16 bg-emerald rounded-full flex items-center justify-center mx-auto mb-5 shadow-md">
                     <i class="fas fa-lock text-white text-xl"></i>
                 </div>
-                <h3 class="text-xl font-semibold mb-2 text-emerald-dark">SSL Secure</h3>
+                <h3 class="text-xl font-semibold mb-2 text-emerald-dark">Sertifikat SISKOPATUH</h3>
                 <p class="text-gray-600 text-sm md:text-base">
-                    Transaksi aman dengan sistem keamanan berlapis
+                    Teregistrasi SISKOPATUH Kemenag
                 </p>
             </div>
         </div>
