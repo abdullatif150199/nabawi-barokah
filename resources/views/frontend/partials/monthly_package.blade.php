@@ -114,58 +114,72 @@
 
                             <!-- Gambar -->
                             <div class="cursor-pointer overflow-hidden group"
-                                onclick="openLightbox('{{ asset('storage/'.$package->image) }}', '{{ $package->detail ?? '' }}')">
-                                <img src="{{ asset('storage/'.$package->image) }}" alt="{{ $package->name }}"
+                                onclick="openLightbox('{{ asset('storage/' . $package->image) }}', '{{ $package->detail ?? '' }}')">
+                                <img src="{{ asset('storage/' . $package->image) }}" alt="{{ $package->name }}"
                                     class="w-full h-72 object-cover transition-transform duration-500 group-hover:scale-105">
                             </div>
 
                             <!-- Detail -->
                             <div class="p-6 space-y-3 text-sm text-gray-700 flex-1">
                                 @if ($package->airline)
-                                    <div class="flex items-center gap-3">
-                                        <i
-                                            class="fas fa-plane text-emerald-600 text-lg leading-none w-5 h-5 flex-shrink-0"></i>
-                                        <span class="font-medium">Maskapai:</span>
-                                        <span>{{ $package->airline }}</span>
+                                    <div class="flex items-start gap-3">
+                                        <i class="fas fa-plane text-emerald-600 text-lg w-5 h-5 flex-shrink-0"></i>
+                                        <div class="flex w-full">
+                                            <span class="font-medium w-36 flex-shrink-0">Maskapai:</span>
+                                            <span class="flex-1 ml-1">{{ $package->airline }}</span>
+                                        </div>
                                     </div>
                                 @endif
+
                                 @if ($package->hotel_1)
-                                    <div class="flex items-center gap-3">
-                                        <i
-                                            class="fas fa-hotel text-emerald-600 text-lg leading-none w-5 h-5 flex-shrink-0"></i>
-                                        <span class="font-medium">Hotel Madinah:</span>
-                                        <span>{{ $package->hotel_1 }}</span>
+                                    <div class="flex items-start gap-3">
+                                        <i class="fas fa-hotel text-emerald-600 text-lg w-5 h-5 flex-shrink-0"></i>
+                                        <div class="flex w-full">
+                                            <span class="font-medium w-36 flex-shrink-0">Hotel Madinah:</span>
+                                            <span class="flex-1 ml-1">{{ $package->hotel_1 }}</span>
+                                        </div>
                                     </div>
                                 @endif
+
                                 @if ($package->hotel_2)
-                                    <div class="flex items-center gap-3">
-                                        <i
-                                            class="fas fa-building text-emerald-600 text-lg leading-none w-5 h-5 flex-shrink-0"></i>
-                                        <span class="font-medium">Hotel Mekkah:</span>
-                                        <span>{{ $package->hotel_2 }}</span>
+                                    <div class="flex items-start gap-3">
+                                        <i class="fas fa-building text-emerald-600 text-lg w-5 h-5 flex-shrink-0"></i>
+                                        <div class="flex w-full">
+                                            <span class="font-medium w-36 flex-shrink-0">Hotel Mekkah:</span>
+                                            <span class="flex-1 ml-1">{{ $package->hotel_2 }}</span>
+                                        </div>
                                     </div>
                                 @endif
+
                                 @if ($package->ziarah)
-                                    <div class="flex items-center gap-3">
+                                    <div class="flex items-start gap-3">
                                         <i
-                                            class="fas fa-map-marker-alt text-emerald-600 text-lg leading-none w-5 h-5 flex-shrink-0"></i>
-                                        <span class="font-medium">Ziarah:</span>
-                                        <span>{{ $package->ziarah }}</span>
+                                            class="fas fa-map-marker-alt text-emerald-600 text-lg w-5 h-5 flex-shrink-0"></i>
+                                        <div class="flex w-full">
+                                            <span class="font-medium w-36 flex-shrink-0">Ziarah:</span>
+                                            <span class="flex-1 ml-1">{{ $package->ziarah }}</span>
+                                        </div>
                                     </div>
                                 @endif
+
                                 @if ($package->acomodation)
-                                    <div class="flex items-center gap-3">
-                                        <i
-                                            class="fas fa-bus text-emerald-600 text-lg leading-none w-5 h-5 flex-shrink-0"></i>
-                                        <span class="font-medium">Akomodasi:</span>
-                                        <span>{{ $package->acomodation }}</span>
+                                    <div class="flex items-start gap-3">
+                                        <i class="fas fa-bus text-emerald-600 text-lg w-5 h-5 flex-shrink-0"></i>
+                                        <div class="flex w-full">
+                                            <span class="font-medium w-36 flex-shrink-0">Akomodasi:</span>
+                                            <span class="flex-1 ml-1">{{ $package->acomodation }}</span>
+                                        </div>
                                     </div>
                                 @endif
                             </div>
 
-
                             <!-- CTA -->
                             <div class="p-6 pt-0">
+                                @if ($package->price)
+                                    <p class="text-2xl font-bold text-center text-emerald mb-2">
+                                        Rp {{ number_format($package->price, 0, ',', '.') }}
+                                    </p>
+                                @endif
                                 <a href="https://wa.me/{{ $wa }}?text={{ urlencode('Assalamualaikum, saya tertarik dengan paket: ' . $package->name . '. Mohon info selengkapnya.') }}"
                                     target="_blank"
                                     class="block w-full text-center bg-gradient-to-r from-yellow-400 to-yellow-500 text-emerald-900 font-semibold py-2 rounded-lg hover:opacity-90 transition">
@@ -179,6 +193,7 @@
 
             <div class="swiper-pagination mt-4"></div>
         </div>
+
     </div>
 
     <!-- Lightbox Modal -->
