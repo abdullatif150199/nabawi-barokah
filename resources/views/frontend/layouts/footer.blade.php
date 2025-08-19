@@ -23,7 +23,7 @@
                 <ul class="space-y-2 text-sm text-emerald-light">
                     <li class="flex items-center gap-2">
                         <i class="fas fa-phone text-gold"></i>
-                        <span>+62 812-3456-7890</span>
+                        <span>{{$wa}}</span>
                     </li>
                     <li class="flex items-center gap-2">
                         <i class="fas fa-envelope text-gold"></i>
@@ -52,19 +52,19 @@
                 <h4 class="text-lg font-semibold mb-4 text-gold">Ikuti Kami</h4>
                 <div class="flex space-x-4">
                     <a href="{{ $setting->fb ?? '#' }}"
-                        class="w-10 h-10 rounded-full bg-gold flex items-center justify-center hover:scale-110 transition-transform duration-300 shadow-md">
+                        class="w-10 h-10 rounded-full bg-gold flex items-center justify-center hover:scale-110 transition-transform duration-300 shadow-md" target="_blank">
                         <i class="fab fa-facebook-f text-emerald-dark"></i>
                     </a>
                     <a href="{{ $setting->ig ?? '#' }}"
-                        class="w-10 h-10 rounded-full bg-gold flex items-center justify-center hover:scale-110 transition-transform duration-300 shadow-md">
+                        class="w-10 h-10 rounded-full bg-gold flex items-center justify-center hover:scale-110 transition-transform duration-300 shadow-md" target="_blank">
                         <i class="fab fa-instagram text-emerald-dark"></i>
                     </a>
                     <a href="{{ $setting->yt ?? '#' }}"
-                        class="w-10 h-10 rounded-full bg-gold flex items-center justify-center hover:scale-110 transition-transform duration-300 shadow-md">
+                        class="w-10 h-10 rounded-full bg-gold flex items-center justify-center hover:scale-110 transition-transform duration-300 shadow-md" target="_blank">
                         <i class="fab fa-youtube text-emerald-dark"></i>
                     </a>
                     <a href="{{ 'https://wa.me/' . $wa ?? '#' }}"
-                        class="w-10 h-10 rounded-full bg-gold flex items-center justify-center hover:scale-110 transition-transform duration-300 shadow-md">
+                        class="w-10 h-10 rounded-full bg-gold flex items-center justify-center hover:scale-110 transition-transform duration-300 shadow-md" target="_blank">
                         <i class="fab fa-whatsapp text-emerald-dark"></i>
                     </a>
                 </div>

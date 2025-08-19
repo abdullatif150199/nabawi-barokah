@@ -31,7 +31,8 @@ class HomeController extends Controller
             'documentations',
             // 'announcement',
             'packageLists',
-            'videos'
+            'videos',
+            'setting'
             // 'wa'
         ));
     }

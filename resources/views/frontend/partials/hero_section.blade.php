@@ -1,6 +1,20 @@
+@push('style')
+<style>
+
+    #hero {
+        background-image: url('{{ asset('backend-assets/images/hero-mobile.png') }}');
+    }
+
+    @media (min-width: 768px) {
+        #hero {
+            background-image: url('{{ asset('backend-assets/images/hero.jpg') }}');
+        }
+    }
+</style>
+
+@endpush
 <!-- Hero Section -->
-<section id="hero" class="hero-bg min-h-screen flex items-center bg-cover bg-center bg-no-repeat"
-    style="background-image: url('{{ asset('backend-assets/images/hero.jpg') }}')">
+<section id="hero" class="hero-bg min-h-screen flex items-center bg-cover bg-center bg-no-repeat">
     <div class="container mx-auto px-4 text-center text-gold hero-content" data-aos="fade-up" data-aos-duration="1500">
         <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight text-gray-800">
             Umroh Amanah & Eksklusif<br>

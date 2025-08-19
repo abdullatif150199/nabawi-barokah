@@ -27,7 +27,7 @@
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label>WhatsApp</label>
-                                    <input type="text" name="wa" class="form-control"
+                                    <input type="number" name="wa" class="form-control"
                                         value="{{ old('wa', optional($setting)->wa) }}">
                                     @error('wa')
                                         <small class="text-danger">{{ $message }}</small>
