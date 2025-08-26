@@ -7,6 +7,10 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>@yield('title', 'Nabawi Barokah - Umroh Amanah & Eksklusif')</title>
 
+    <meta name="description" content="@yield('meta_description', 'Nabawi Barokah menyediakan layanan perjalanan Umroh dan Haji dengan amanah, eksklusif, dan sesuai syariat Islam.')">
+    <meta name="keywords" content="@yield('meta_keywords', 'umroh, haji, travel umroh, nabawi barokah, umroh amanah, haji eksklusif')">
+    <meta name="author" content="Nabawi Barokah">
+
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('backend-assets/images/logo.png') }}">
     <link rel="stylesheet" href="{{ asset('backend-assets/vendor/jqvmap/css/jqvmap.min.css') }}">
@@ -17,12 +21,26 @@
         href="{{ asset('backend-assets/vendor/bootstrap-select/dist/css/bootstrap-select.min.css') }}">
     <link rel="stylesheet" href="{{ asset('backend-assets/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('backend-assets/css/skin-3.css') }}">
-    {{-- toast --}}
+    {{-- toastr --}}
     <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet" />
     <!-- Datatable -->
     <link rel="stylesheet" href="{{ asset('backend-assets/vendor/datatables/css/jquery.dataTables.min.css') }}">
     {{-- <link rel="stylesheet" href="{{ asset('backend-assets/css/style.css') }}"> --}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/trix/1.3.1/trix.min.css">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-16575357948"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'AW-16575357948');
+    </script>
+
     <style>
         .trix-lg {
             min-height: 300px;
@@ -33,6 +51,8 @@
         }
     </style>
     @stack('style')
+
+
 
 </head>
 

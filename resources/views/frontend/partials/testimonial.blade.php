@@ -34,7 +34,7 @@
                                         class="w-32 h-32 rounded-full object-cover border-4 border-emerald-500 shadow-md">
                                 </div>
 
-                                <div class="flex justify-center mt-3 mb-5">
+                                <div class="flex justify-center mt-3 mb-2">
                                     {{-- Bintang penuh sesuai rating --}}
                                     @for ($i = 1; $i <= $testimonial->rating; $i++)
                                         <i class="fa-solid fa-star star star-full" aria-hidden="true"></i>
@@ -45,13 +45,16 @@
                                         <i class="fa-regular fa-star star star-empty" aria-hidden="true"></i>
                                     @endfor
                                 </div>
+                                <div class="mb-2">
+                                    <p class="font-semibold text-emerald">
+                                        {{ $testimonial->user }}
+                                    </p>
+                                </div>
 
                                 <p class="text-gray-600 italic mb-3">
                                     "{{ $testimonial->content }}"
                                 </p>
-                                <p class="font-semibold text-emerald">
-                                    - {{ $testimonial->user }}
-                                </p>
+
 
                             </div>
                         </div>
