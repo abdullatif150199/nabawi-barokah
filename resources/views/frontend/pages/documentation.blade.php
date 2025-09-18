@@ -1,5 +1,9 @@
 @extends('frontend.layouts.main')
 
+@section('title', $documentation->title . ' | Nabawi Barokah')
+@section('meta_description', Str::limit(strip_tags($documentation->description??''), 160, '...'))
+@section('meta_keywords', $documentation->title . ', umroh, haji, travel umroh, nabawi barokah')
+
 @section('content')
     {{-- <section class="py-16 bg-gray-100">
         <div class="max-w-4xl mx-auto px-4 relative">

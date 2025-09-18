@@ -4,10 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@yield('title', 'Nabawi Barokah - Umroh Amanah & Eksklusif')</title>
+    <title>@yield('title', 'Nabawi Barokah | Travel Umroh & Haji Amanah, Eksklusif, Syari')</title>
+
+    <meta name="description" content="@yield('meta_description', 'Nabawi Barokah menyediakan layanan perjalanan Umroh dan Haji dengan amanah, eksklusif, dan sesuai syariat Islam.')">
+    <meta name="keywords" content="@yield('meta_keywords', 'umroh, haji, travel umroh, nabawi barokah, umroh amanah, haji eksklusif')">
+    <meta name="author" content="Nabawi Barokah">
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('backend-assets/images/logo.png') }}">
 
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
