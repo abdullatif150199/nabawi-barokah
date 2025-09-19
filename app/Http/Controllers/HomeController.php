@@ -15,7 +15,7 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $articles = Article::latest()->get();
+        $articles = Article::latest()->limit(10)->get();
         $packages = Package::latest()->get();
         $testimonials = Testimonial::latest()->get();
         $documentations = Documentation::latest()->get();

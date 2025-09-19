@@ -13,8 +13,11 @@ use App\Http\Controllers\VisitorController;
 use App\Http\Controllers\YoutubeController;
 use App\Http\Middleware\TrackVisitor;
 use App\Models\Documentation;
-use App\Models\Testimonial;
 use Illuminate\Support\Facades\Route;
+use Spatie\Sitemap\Sitemap;
+use Spatie\Sitemap\Tags\Url;
+use App\Models\Article;
+
 
 // Route::get('/', function () {
 //     return view('welcome');
@@ -22,10 +25,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware([TrackVisitor::class])->group(function () {
     Route::get('/', [HomeController::class, 'index'])->name('home');
-    // Route::get('/artikel', [HomeController::class, 'article']);
     Route::get('/documentation/{slug}', [HomeController::class, 'documentation'])->name('dokumentasi.detail');
     Route::get('/artikel/{slug}', [HomeController::class, 'article'])->name('artikel.detail');
-    // semua route publik bisa ditaruh di sini
 });
 
 Route::post('/logout', [AuthController::class, 'logout'])->middleware('auth');
@@ -56,3 +57,37 @@ Route::prefix('dashboard')->middleware(['auth'])->group(function () {
         Route::post('/{id}/activate', [AnouncementController::class, 'activate'])->name('activate');
     });
 });
+
+
+// sitemap
+Route::get('/sitemap.xml', function () {
+    $sitemap = Sitemap::create()
+        ->add(Url::create('/')->setPriority(1.0));
+
+    // Artikel statis (index artikel)
+    // $sitemap->add(Url::create('/artikel')->setPriority(0.8));
+
+    // Dokumentasi statis (index dokumentasi)
+    // $sitemap->add(Url::create('/documentation')->setPriority(0.8));
+
+    // Artikel dari database
+    foreach (Article::all() as $article) {
+        $sitemap->add(
+            Url::create("/artikel/{$article->slug}")
+                ->setLastModificationDate($article->updated_at ?? $article->created_at)
+                ->setPriority(0.8)
+        );
+    }
+
+    // Dokumentasi dari database
+    foreach (Documentation::all() as $doc) {
+        $sitemap->add(
+            Url::create("/documentation/{$doc->slug}")
+                ->setLastModificationDate($doc->updated_at ?? $doc->created_at)
+                ->setPriority(0.8)
+        );
+    }
+
+    return $sitemap->toResponse(request());
+});
+
